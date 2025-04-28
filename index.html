@@ -3,68 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Joshua Ennis, Electrical Engineer</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 1rem;
-            text-align: center;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 2rem;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
-            background-color: #333;
-            color: #fff;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <title>Joshua Ennis - Electrical Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Joshua Ennis<h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
     </header>
-    <div class="container">
-        <section>
+    
+    <section id="home">
+        <div class="intro">
+            <h1>Joshua Ennis</h1>
+            <p>Electrical Engineer | FPGA & VHDL Expert</p>
+            <a href="#contact" class="cta-button">Contact Me</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="content">
             <h2>About Me</h2>
-            <p>Hello, my name is Joshua Ennis. I am interested in domain specific architectures, hardware acceleration, and CPU design.
-                Currently, I work at Los Alamos National Lab on FPGAs. I am currently pursuing my B.S. in Electrical Engineering.  </p>
-        </section>
-        <section>
-            <h2>Projects</h2>
-            <div>
-                <h3>Project 1</h3>
-                <p>Description of Project 1...</p>
+            <p>I’m an electrical engineering student at the University of North Texas, specializing in FPGA design and digital systems...</p>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="content">
+            <h2>Portfolio</h2>
+            <div class="projects">
+                <!-- Example project -->
+                <div class="project">
+                    <h3>SPHINCS+ Hardware Accelerator</h3>
+                    <p>Description of the project...</p>
+                </div>
+                <!-- Add more projects here -->
             </div>
-            <div>
-                <h3>Project 2</h3>
-                <p>Description of Project 2...</p>
-            </div>
-            <!-- Add more projects as needed -->
-        </section>
-        <section>
-            <h2>Contact Me</h2>
-            <p>Email: joshuaennis@my.unt.edu</p>
-            <p>Phone: (940) 391-8223</p>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="content">
+            <h2>Contact</h2>
+            <form>
+                <input type="text" placeholder="Your Name">
+                <input type="email" placeholder="Your Email">
+                <textarea placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2024 Joshua Ennis</p>
+        <p>&copy; 2025 Joshua Ennis. All rights reserved.</p>
     </footer>
 </body>
 </html>

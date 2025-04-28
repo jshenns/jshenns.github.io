@@ -5,21 +5,6 @@
   box-sizing: border-box;
 }
 
-html, body {
-  scroll-snap-type: y mandatory;
-  height: 100%;
-  overflow-y: scroll;
-}
-
-/* Make each main section snap */
-section {
-  scroll-snap-align: start;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 /* Dark Mode Toggle Button */
 #darkModeToggle {
   position: fixed;
@@ -54,12 +39,18 @@ body.dark-mode a {
 body.dark-mode nav ul li a {
   color: #ffffff;
 }
+
 body {
   font-family: 'Inter', sans-serif;
   background: #ffffff;
   color: #000000;
   line-height: 1.6;
   padding-top: 80px; /* space for fixed header */
+  
+  /* Scroll Snap */
+  scroll-snap-type: y mandatory;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 /* Accent Color */
@@ -111,6 +102,9 @@ nav ul li a {
   align-items: center;
   text-align: center;
   padding: 0 20px;
+
+  /* Scroll Snap */
+  scroll-snap-align: start;
 }
 
 .hero h1 {
@@ -129,6 +123,13 @@ section {
   padding: 80px 20px;
   max-width: 1000px;
   margin: 0 auto;
+  min-height: 100vh; /* Full screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* Scroll Snap */
+  scroll-snap-align: start;
 }
 
 h2 {
@@ -147,4 +148,8 @@ footer {
   padding: 40px 20px;
   border-top: 1px solid #ccc;
   margin-top: 80px;
+  min-height: 50vh; /* Optional: makes footer feel substantial */
+
+  /* Scroll Snap */
+  scroll-snap-align: start;
 }

@@ -19,12 +19,12 @@
 
 /* Dark Mode Styles */
 body.dark-mode {
-  background: #000000;
+  background: radial-gradient(circle at center, #0a0a0a 0%, #000000 100%);
   color: #ffffff;
 }
 
 body.dark-mode header {
-  background: #000000;
+  background: transparent;
   border-bottom: 1px solid #444;
 }
 
@@ -33,29 +33,48 @@ body.dark-mode footer {
 }
 
 body.dark-mode a {
-  color: #FFD700; /* Example accent color in dark mode (Gold) */
+  color: #FFD700; /* Gold accent color in dark mode */
 }
 
 body.dark-mode nav ul li a {
   color: #ffffff;
 }
 
+/* Body */
 body {
   font-family: 'Inter', sans-serif;
-  background: #ffffff;
+  background: radial-gradient(circle at center, #f9f9f9 0%, #e0e0e0 100%);
   color: #000000;
   line-height: 1.6;
-  padding-top: 80px; /* space for fixed header */
-  
+  padding-top: 80px; /* Space for fixed header */
+
   /* Scroll Snap */
   scroll-snap-type: y mandatory;
   height: 100%;
   overflow-y: scroll;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Grainy Noise Layer */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+  opacity: 0.05;
+  z-index: 0;
 }
 
 /* Accent Color */
 a {
-  color: #0077FF; /* Accent color - bright blue */
+  color: #0077FF; /* Bright blue accent */
   text-decoration: none;
 }
 
@@ -65,7 +84,7 @@ a:hover {
 
 /* Header */
 header {
-  background: #ffffff;
+  background: transparent;
   border-bottom: 1px solid #ccc;
   position: fixed;
   top: 0;
@@ -75,6 +94,7 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
+  backdrop-filter: blur(10px); /* Optional: nice soft glassmorphism effect */
 }
 
 .logo {
@@ -148,8 +168,8 @@ footer {
   padding: 40px 20px;
   border-top: 1px solid #ccc;
   margin-top: 80px;
-  min-height: 50vh; /* Optional: makes footer feel substantial */
-
+  min-height: 50vh; /* Makes footer substantial */
+  
   /* Scroll Snap */
   scroll-snap-align: start;
 }

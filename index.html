@@ -3,55 +3,445 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Joshua Ennis | Electrical Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  /* Global Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-<header>
-  <nav>
+  /* Dark Mode Toggle Button */
+  #darkModeToggle {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1100;
+    color: inherit;
+  }
+
+  /* Dark Mode Styles */
+  body.dark-mode {
+    background: #0a0a0a;
+    color: #ffbf00;
+  }
+
+  body.dark-mode header {
+    background: transparent;
+    border-bottom: 1px solid #444;
+  }
+
+  body.dark-mode footer {
+    border-top: 1px solid #444;
+  }
+  
+  body.dark-mode a {
+    color: #FFBF00;
+  }
+
+  /* Body */
+  body {
+    font-family: 'Share Tech Mono', monospace;
+    background: #f9f9f9;
+    color: #000000;
+    line-height: 1.6;
+    height: 100%;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    position: relative;
+    font-size: 16px;
+  }
+
+  main {
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
+  }
+
+  /* Header */
+  header {
+    position: fixed;
+    background: transparent;
+    border-bottom: 1px solid #ccc;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 9.375rem;
+    padding: 1.25rem 3.125rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1001;
+    backdrop-filter: blur(10px);
+  }
+
+  .logo {
+    font-family: 'VT323', monospace;
+    font-weight: 700;
+    font-size: 3rem;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  nav ul li a {
+    font-weight: 500;
+    font-size: 1.125rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Hero Section */
+  .hero {
+  
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1.25rem;
+    scroll-snap-align: start;
     
-    <div class="logo">JOSHUA ENNIS</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-  <button id="darkModeToggle" aria-label="Toggle Dark Mode">🌙</button>
-</header>
+  }
 
-<section id="home" class="hero">
-  <h1>Electrical Engineer & FPGA Specialist</h1>
-  <p>Building the future, one bit at a time.</p>
-</section>
+  .hero h1 {
+    font-family: 'VT323', monospace;
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+  }
 
-<section id="about">
-  <h2>About Me</h2>
-  <p>I'm Joshua Ennis, an electrical engineering student passionate about digital design, embedded systems, and signal processing. I have experience working with Los Alamos National Laboratory and NASA Langley Research Center.</p>
-</section>
+  .hero p {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.5rem;
+    
+  }
 
-<section id="portfolio">
-  <h2>Portfolio</h2>
-  <div class="project">
-    <h3>SPHINCS+ Hardware Accelerator</h3>
-    <p>Developed a hardware accelerator for post-quantum cryptography signatures using FPGA-based designs and VHDL.</p>
-  </div>
-  <div class="project">
-    <h3>ESP-32 Weather Station</h3>
-    <p>Designed and programmed a Wi-Fi enabled weather station using the ESP-32 microcontroller and cloud database integration.</p>
-  </div>
-</section>
+  /* Sections */
+  section {
+    padding: 5rem 1.25rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    scroll-snap-align: start;
+  }
 
-<section id="contact">
-  <h2>Contact</h2>
-  <p>Email me at <a href="mailto:joshennis115@gmail.com">joshennis115@gmail.com</a> or connect with me on <a href="https://linkedin.com">LinkedIn</a>.</p>
-</section>
+  h2 {
+    font-family: 'VT323', monospace;
+    font-size: 4rem;
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+  }
 
-<footer>
-  <p>&copy; 2025 Joshua Ennis</p>
-</footer>
-<script src="script.js"></script>
+  /* Projects Style */
+  .project {
+    margin-bottom: 2.5rem;
+    padding: 1.25rem;
+    border: 2px dashed #555;
+    border-radius: 0.5rem;
+    background-color: rgba(0, 0, 0, 0.02);
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  .project h3 {
+    font-family: 'VT323', monospace;
+    font-size: 1.8rem;
+    margin-bottom: 0.625rem;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    border-right: 0.15em solid black; /* default black */
+  }
+
+  .project p {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.2rem;
+  }
+
+  .project:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  body.dark-mode .project:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2.5rem 1.25rem;
+    border-top: 1px solid #ccc;
+    margin-top: 5rem;
+  }
+
+  /* Accent Color */
+  a {
+    color: #0077FF;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Grid Overlay */
+  .grid-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
+    background-size: 3.75rem 3.75rem;
+    background-repeat: repeat;
+    z-index: 0;
+  }
+
+  body.dark-mode .grid-overlay {
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+  }
+
+  /* Noise Overlay */
+  .noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+    background-size: 25rem 25rem;
+    background-repeat: repeat;
+    opacity: 0.4;
+    z-index: 1;
+    animation: moveNoise 20s infinite linear alternate;
+  }
+
+  body.dark-mode .noise-overlay {
+    opacity: 0.2;
+  }
+
+  @keyframes moveNoise {
+    0% { background-position: 0 0; }
+    100% { background-position: 3.125rem 3.125rem; }
+  }
+
+  /* Typing Animation Keyframes */
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  @keyframes blink-caret-light {
+    from, to { border-color: black; }
+    50% { border-color: transparent; }
+  }
+
+  @keyframes blink-caret-dark {
+    from, to { border-color: #ffbf00; }
+    50% { border-color: transparent; }
+  }
+
+  /* Layering */
+  header, .hero, section, footer, #darkModeToggle {
+    position: relative;
+    z-index: 10;
+  }
+  
+  
+.logo-cards {
+  display: flex;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.logo-card {
+  background: rgba(0,0,0,0.02);
+  border: 2px dashed #555;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 18rem;  /* Increased width */
+  height: 12rem; /* Increased height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.logo-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.logo-card:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.dark-mode .logo-card:hover {
+  background: rgba(255, 255, 255, 0.08); /* Dark background in dark mode */
+  border: 2px solid rgba(255, 191, 0, 0.3); /* Soft amber border */
+  box-shadow: 0 8px 16px rgba(255, 191, 0, 0.2); /* Soft amber glow */
+}
+  
+  /* In light mode (to darken background for white logos) */
+body:not(.dark-mode) .logo-card {
+  background: rgba(0, 0, 0, 0.15); /* Darker background in light mode */
+  border: 2px solid rgba(0, 0, 0, 0.3); /* Darker border */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow for contrast */
+}
+  
+  
+</style>
+
+</head>
+
+<body class="dark-mode">
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="https://github.com/jshenns">GitHub</a></li>
+      </ul>
+    </nav>
+    <button id="darkModeToggle">🌙</button>
+  </header>
+
+  <div class="grid-overlay"></div>
+  <div class="noise-overlay"></div>
+
+  <main>
+    <div class="hero">
+      <h1>Joshua Ennis</h1>
+      <p>Hardware Acceleration | FPGA/ASIC Design | PCB Design</p>
+    </div>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I am a hardware engineer passionate about digital design and embedded systems, with experience at organizations like Cesium Astro, Los Alamos National Laboratory, and NASA Langley Research Center. My current focus is in high performance hardware accelerator design for FPGAs and ASICs.</p>
+<div class="logo-cards">
+  <a href="https://www.nasa.gov/langley/" target="_blank" class="logo-card">
+    <img src="https://github.com/jshenns/jshenns.github.io/blob/main/58429400a6515b1e0ad75acc.png?raw=true" alt="NASA Langley Research Center">
+  </a>
+
+  <a href="https://www.lanl.gov/engage/organizations/isr" target="_blank" class="logo-card">
+    <img src="https://github.com/jshenns/jshenns.github.io/blob/main/lanl_white_black_bg-Photoroom.png?raw=true" alt="Los Alamos National Laboratory">
+  </a>
+
+  <a href="https://cesiumastro.com/" target="_blank" class="logo-card">
+    <img src="https://raw.githubusercontent.com/jshenns/jshenns.github.io/11fd6c914f533564ff3412e9d1f6efcfd4686228/67e1bf3f86abd3b1796e8750_CesiumAstro-Logo-White.svg" alt="Cesium Astro">
+  </a>
+   
+   
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <h3>SPHINCS+ Hardware Accelerator</h3>
+        <p>Developed an Artix-7 FPGA-based hardware accelerator for SPHINCS+, a post-quantum cryptography algorithm. (Research)</p>
+      </div>
+      <div class="project">
+        <h3>Reed Solomon Encoder</h3>
+        <p>Implemented Reed Solomon encoding on a Zynq-7000 FPGA SoC for a satellite-based software-defined radio system. (LANL)</p>
+      </div>
+      <div class="project">
+        <h3>ESP-32 Weather Station</h3>
+        <p>Built a weather station with real-time data collection using an ESP-32 and cloud storage integration.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Feel free to reach out via email or LinkedIn to discuss collaborations or opportunities.</p>
+      <a href="https://www.linkedin.com/in/joshua-ennis115/">My LinkedIn</a>
+      <a href="mailto:joshennis115@gmail.com">My Email</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Joshua Ennis. All Rights Reserved.</p>
+  </footer>
+
+<script>
+const toggle = document.getElementById('darkModeToggle');
+const projectTitles = document.querySelectorAll('.project h3');
+
+function updateInitialCaret() {
+  const isDarkMode = document.body.classList.contains('dark-mode');
+  projectTitles.forEach(title => {
+    title.style.borderRight = `0.15em solid ${isDarkMode ? '#ffbf00' : '#000000'}`;
+  });
+}
+
+toggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  toggle.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
+  updateInitialCaret();
+  
+  projectTitles.forEach(title => {
+    title.style.animation = 'none';
+    void title.offsetWidth; // Force reflow
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    title.style.animation = `
+      typing 2.5s steps(40, end) forwards,
+      ${isDarkMode ? 'blink-caret-dark' : 'blink-caret-light'} .75s step-end infinite
+    `;
+  });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  updateInitialCaret();
+  
+  const projectSection = document.getElementById('projects');
+  let animationStarted = false;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !animationStarted) {
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        projectTitles.forEach((title, index) => {
+          title.style.animation = `
+            typing 2.5s steps(40, end) forwards,
+            ${isDarkMode ? 'blink-caret-dark' : 'blink-caret-light'} .75s step-end infinite
+          `;
+          title.style.animationDelay = `${index * 2.7}s`;
+        });
+        animationStarted = true;
+        observer.unobserve(projectSection);
+      }
+    });
+  }, {
+    threshold: 0.5
+  });
+
+  observer.observe(projectSection);
+});
+</script>
+
 </body>
 </html>

@@ -266,7 +266,31 @@
     z-index: 10;
   }
   
-  
+  /* Styling for headshot image */
+.headshot {
+  width: 15rem; /* Adjust the size */
+  height: 15rem;
+  border: 2px solid #555; /* Optional border */
+  object-fit: cover; /* Crop image to fit the circle */
+  margin-right: 2rem; /* Space between image and text */
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+}
+
+
+/* Hover effect */
+.headshot:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Slight hover background */
+  border: 2px solid rgba(0, 0, 0, 0.3); /* Slightly darker border */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Dark mode hover effect */
+body.dark-mode .headshot:hover {
+  background-color: rgba(0, 0, 0, 0.05); /* Slight hover background */
+  border: 2px solid rgba(255, 191, 0, 0.3); /* Soft amber border in dark mode */
+  box-shadow: 0 8px 16px rgba(255, 191, 0, 0.2); /* Soft amber glow in dark mode */
+}
+
 .logo-cards {
   display: flex;
   gap: 2.5rem;
@@ -340,24 +364,33 @@ body:not(.dark-mode) .logo-card {
       <p>Hardware Acceleration | FPGA/ASIC Design | PCB Design</p>
     </div>
 
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I am a hardware engineer passionate about digital design and embedded systems, with experience at organizations like Cesium Astro, Los Alamos National Laboratory, and NASA Langley Research Center. My current focus is in high performance hardware accelerator design for FPGAs and ASICs.</p>
-<div class="logo-cards">
-  <a href="https://www.nasa.gov/langley/" target="_blank" class="logo-card">
-    <img src="https://github.com/jshenns/jshenns.github.io/blob/main/58429400a6515b1e0ad75acc.png?raw=true" alt="NASA Langley Research Center">
-  </a>
+<section id="about">
 
-  <a href="https://www.lanl.gov/engage/organizations/isr" target="_blank" class="logo-card">
-    <img src="https://github.com/jshenns/jshenns.github.io/blob/main/lanl_white_black_bg-Photoroom.png?raw=true" alt="Los Alamos National Laboratory">
-  </a>
+    <img src="https://github.com/jshenns/jshenns.github.io/blob/main/headshot.jpg?raw=true" alt="Joshua Ennis" class="headshot">
+  <h2>About Me</h2>
+  <div class="about-content">
+    <!-- Headshot -->
 
-  <a href="https://cesiumastro.com/" target="_blank" class="logo-card">
-    <img src="https://raw.githubusercontent.com/jshenns/jshenns.github.io/11fd6c914f533564ff3412e9d1f6efcfd4686228/67e1bf3f86abd3b1796e8750_CesiumAstro-Logo-White.svg" alt="Cesium Astro">
-  </a>
+
+    <p>I am a hardware engineer passionate about digital design and embedded systems, with experience at organizations like Cesium Astro, Los Alamos National Laboratory, and NASA Langley Research Center. My current focus is in high performance hardware accelerator design for FPGAs and ASICs.</p>
+  </div>
+
+  <div class="logo-cards">
+    <a href="https://www.nasa.gov/langley/" target="_blank" class="logo-card">
+      <img src="https://github.com/jshenns/jshenns.github.io/blob/main/58429400a6515b1e0ad75acc.png?raw=true" alt="NASA Langley Research Center">
+    </a>
+
+    <a href="https://www.lanl.gov/engage/organizations/isr" target="_blank" class="logo-card">
+      <img src="https://github.com/jshenns/jshenns.github.io/blob/main/lanl_white_black_bg-Photoroom.png?raw=true" alt="Los Alamos National Laboratory">
+    </a>
+
+    <a href="https://cesiumastro.com/" target="_blank" class="logo-card">
+      <img src="https://raw.githubusercontent.com/jshenns/jshenns.github.io/11fd6c914f533564ff3412e9d1f6efcfd4686228/67e1bf3f86abd3b1796e8750_CesiumAstro-Logo-White.svg" alt="Cesium Astro">
+    </a>
+  </div>
+</section>
    
    
-    </section>
 
     <section id="projects">
       <h2>Projects</h2>
@@ -371,7 +404,7 @@ body:not(.dark-mode) .logo-card {
       </div>
       <div class="project">
         <h3>ESP-32 Weather Station</h3>
-        <p>Built a weather station with real-time data collection using an ESP-32 and cloud storage integration.</p>
+        <p>Built a weather station with real-time data collection using an ESP-32 and cloud storage integration. (Personal)</p>
       </div>
     </section>
 

@@ -20,7 +20,7 @@
     right: 1.25rem;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
     cursor: pointer;
     z-index: 1100;
     color: inherit;
@@ -50,12 +50,12 @@
     font-family: 'Share Tech Mono', monospace;
     background: #f9f9f9;
     color: #000000;
-    line-height: 1.6;
+    line-height: 1.8;
+    font-size: 20px; /* Bigger base font */
     height: 100%;
     overflow-y: scroll;
     scroll-behavior: smooth;
     position: relative;
-    font-size: 16px;
   }
 
   main {
@@ -84,25 +84,24 @@
   .logo {
     font-family: 'VT323', monospace;
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   nav ul {
     list-style: none;
     display: flex;
-    gap: 1.25rem;
+    gap: 2rem;
   }
 
   nav ul li a {
     font-weight: 500;
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     text-decoration: none;
     color: inherit;
   }
 
   /* Hero Section */
   .hero {
-  
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -111,20 +110,18 @@
     text-align: center;
     padding: 0 1.25rem;
     scroll-snap-align: start;
-    
   }
 
   .hero h1 {
     font-family: 'VT323', monospace;
-    font-size: 4.5rem;
+    font-size: 6rem;
     font-weight: 700;
     margin-bottom: 1.25rem;
   }
 
   .hero p {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 1.5rem;
-    
+    font-size: 2rem;
   }
 
   /* Sections */
@@ -141,7 +138,7 @@
 
   h2 {
     font-family: 'VT323', monospace;
-    font-size: 4rem;
+    font-size: 5rem;
     margin-bottom: 1.25rem;
     font-weight: 700;
   }
@@ -158,7 +155,7 @@
 
   .project h3 {
     font-family: 'VT323', monospace;
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     margin-bottom: 0.625rem;
     overflow: hidden;
     white-space: nowrap;
@@ -168,7 +165,7 @@
 
   .project p {
     font-family: 'Share Tech Mono', monospace;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
   }
 
   .project:hover {
@@ -185,6 +182,7 @@
     padding: 2.5rem 1.25rem;
     border-top: 1px solid #ccc;
     margin-top: 5rem;
+    font-size: 1.5rem;
   }
 
   /* Accent Color */
@@ -268,27 +266,24 @@
   
   /* Styling for headshot image */
 .headshot {
-  width: 15rem; /* Adjust the size */
-  height: 15rem;
-  border: 2px solid #555; /* Optional border */
-  object-fit: cover; /* Crop image to fit the circle */
-  margin-right: 2rem; /* Space between image and text */
-  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+  width: 18rem;
+  height: 18rem;
+  border: 2px solid #555;
+  object-fit: cover;
+  margin-right: 2rem;
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
-
-/* Hover effect */
 .headshot:hover {
-  background-color: rgba(0, 0, 0, 0.05); /* Slight hover background */
-  border: 2px solid rgba(0, 0, 0, 0.3); /* Slightly darker border */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Light shadow */
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-/* Dark mode hover effect */
 body.dark-mode .headshot:hover {
-  background-color: rgba(0, 0, 0, 0.05); /* Slight hover background */
-  border: 2px solid rgba(255, 191, 0, 0.3); /* Soft amber border in dark mode */
-  box-shadow: 0 8px 16px rgba(255, 191, 0, 0.2); /* Soft amber glow in dark mode */
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(255, 191, 0, 0.3);
+  box-shadow: 0 8px 16px rgba(255, 191, 0, 0.2);
 }
 
 .logo-cards {
@@ -301,16 +296,17 @@ body.dark-mode .headshot:hover {
 }
 
 .logo-card {
-  background: rgba(0,0,0,0.02);
-  border: 2px dashed #555;
+  background: rgba(0,0,0,0.15);
+  border: 2px solid rgba(0,0,0,0.3);
   border-radius: 1rem;
   padding: 2rem;
-  width: 18rem;  /* Increased width */
-  height: 12rem; /* Increased height */
+  width: 20rem;
+  height: 14rem;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: background-color 0.3s, border-color 0.3s;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
 .logo-card img {
@@ -324,21 +320,11 @@ body.dark-mode .headshot:hover {
 }
 
 body.dark-mode .logo-card:hover {
-  background: rgba(255, 255, 255, 0.08); /* Dark background in dark mode */
-  border: 2px solid rgba(255, 191, 0, 0.3); /* Soft amber border */
-  box-shadow: 0 8px 16px rgba(255, 191, 0, 0.2); /* Soft amber glow */
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 191, 0, 0.3);
+  box-shadow: 0 8px 16px rgba(255, 191, 0, 0.2);
 }
-  
-  /* In light mode (to darken background for white logos) */
-body:not(.dark-mode) .logo-card {
-  background: rgba(0, 0, 0, 0.15); /* Darker background in light mode */
-  border: 2px solid rgba(0, 0, 0, 0.3); /* Darker border */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Stronger shadow for contrast */
-}
-  
-  
 </style>
-
 </head>
 
 <body class="dark-mode">
@@ -369,9 +355,6 @@ body:not(.dark-mode) .logo-card {
     <img src="https://github.com/jshenns/jshenns.github.io/blob/main/headshot.jpg?raw=true" alt="Joshua Ennis" class="headshot">
   <h2>About Me</h2>
   <div class="about-content">
-    <!-- Headshot -->
-
-
     <p>I am a hardware engineer passionate about digital design and embedded systems, with experience at organizations like Cesium Astro, Los Alamos National Laboratory, and NASA Langley Research Center. My current focus is in high performance hardware accelerator design for FPGAs and ASICs.</p>
   </div>
 
@@ -390,8 +373,6 @@ body:not(.dark-mode) .logo-card {
   </div>
 </section>
    
-   
-
     <section id="projects">
       <h2>Projects</h2>
       <div class="project">
